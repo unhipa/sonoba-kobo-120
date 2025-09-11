@@ -7,16 +7,18 @@
   <meta name="description" content="120分でHP/簡易アプリを即納。その場でURL発行＋名刺デザイン決定。印刷会社が提供する超短納期スタートアップサービス。">
   <link rel="preload" href="assets/hero-crossroad.png" as="image">
   <link rel="icon" href="assets/logo-sono120.png">
-  <link rel="stylesheet" href="styles.css">
+  <!-- キャッシュ破棄用にクエリを付与 -->
+  <link rel="stylesheet" href="styles.css?v=violet4">
 </head>
 <body>
   <!-- ===== Header / Nav ===== -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="#" class="brand">
+      <a href="#" class="brand" aria-label="その場工房120 ホーム">
         <img src="assets/logo-sono120.png" alt="その場工房120 ロゴ" class="brand-logo" />
         <div class="brand-text">
-          <span class="brand-title">その場工房120</span>
+          <!-- タイトルを大きく＆グラデーション化 -->
+          <span class="brand-title fx-gradient">その場工房120</span>
           <span class="brand-sub">２時間で“始められる”をカタチに</span>
         </div>
       </a>
@@ -35,10 +37,8 @@
   <section class="hero">
     <div class="hero-bg" role="img" aria-label="魔法とテクノロジーの交差点の街並み"></div>
     <div class="container hero-inner">
-      <h1>
-        <span class="pill">NEW</span>
-        120分でURLをその場でお渡し。
-      </h1>
+      <!-- 見出しをさらに大きく＆アニメで“変化” -->
+      <h1 class="hero-title fx-gradient">120分でURLをその場でお渡し。</h1>
       <p class="lead">
         打合せ→要件定義→生成→公開までをワンストップ。<br>
         名刺デザインも同時に決めて、ビジネスを“今”スタート。
@@ -184,7 +184,7 @@
   <section id="contact" class="section alt">
     <div class="container">
       <h2>お問い合わせ</h2>
-      <p class="section-lead">まずは空き枠の確認から。仮押さえもOKです。</p>
+    <p class="section-lead">まずは空き枠の確認から。仮押さえもOKです。</p>
 
       <form class="card form" name="contact" netlify>
         <div class="grid grid-2">
