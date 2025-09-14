@@ -1,9 +1,9 @@
-// Mobile nav
+// ===== Mobile nav =====
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.nav');
 toggle?.addEventListener('click', () => nav.classList.toggle('open'));
 
-// Smooth scroll (internal links)
+// ===== Smooth scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
     const id = a.getAttribute('href');
@@ -15,19 +15,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// To top button
+// ===== To top =====
 const toTop = document.querySelector('.to-top');
-const onScroll = () => {
-  if (window.scrollY > 400) { toTop.style.display='grid'; }
-  else { toTop.style.display='none'; }
-};
+const onScroll = () => { toTop.style.display = window.scrollY > 400 ? 'grid' : 'none'; };
 window.addEventListener('scroll', onScroll);
-toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+toTop?.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
 onScroll();
 
-// Small: prevent form submission on demo unless hosted with Netlify forms
-document.querySelector('form[name="contact"]')?.addEventListener('submit', (e)=>{
-  // そのままNetlifyに載せる場合は以下2行をコメントアウト
-  // e.preventDefault();
-  // alert('送信しました（デモ）');
+// ===== News rail arrows =====
+const rail = document.getElementById('newsRail');
+document.querySelector('.news-prev')?.addEventListener('click', () => {
+  rail?.scrollBy({left: -320, behavior: 'smooth'});
 });
+document.querySelector('.news-next')?.addEventListener('click', () => {
+  rail?.scrollBy({left: 320, behavior: 'smooth'});
+});
+
+// // Netlifyフォーム誤送信防止（必要時のみON）
+// // document.querySelector('form[name="contact"]')?.addEventListener('submit', (e)=>{ e.preventDefault(); alert('送信（デモ）'); });
