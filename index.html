@@ -9,8 +9,8 @@
   <link rel="preload" href="assets/eyecatch-desktop.png" as="image">
   <link rel="preload" href="assets/eyecatch-mobile.png" as="image" media="(max-width: 720px)">
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@700;800&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
-  <!-- ★ キャッシュ切替 -->
-  <link rel="stylesheet" href="styles.css?v=hero14-nav-cta-cyan">
+  <!-- ★ 最新版に更新 -->
+  <link rel="stylesheet" href="styles.css?v=news-json-01">
 </head>
 <body>
   <!-- ===== Header / Nav ===== -->
@@ -28,7 +28,7 @@
       <nav class="nav" aria-label="グローバルナビ">
         <a href="#service">サービス内容</a>
         <a href="#plans">プラン</a>
-        <!-- ★ ここだけ目立つ色に変更 -->
+        <!-- ヘッダーのお問い合わせはシアン→ブルーのCTA（前回のまま） -->
         <a href="#contact" class="btn contact-cta" aria-label="お問い合わせへ移動">お問い合わせ</a>
       </nav>
     </div>
@@ -38,10 +38,8 @@
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="ヒーロー">
     <div class="hero-bg" role="img"></div>
-
     <div class="container hero-inner center">
       <h1 class="hero-title fx-white">120分でURLをその場でお渡し。</h1>
-
       <div class="hero-sub right">
         <p class="lead">
           打合せ→要件定義→生成→公開までをワンストップ。<br>
@@ -53,11 +51,10 @@
         </div>
       </div>
     </div>
-
     <div class="scroll-indicator">▼ Scroll</div>
   </section>
 
-  <!-- ===== Latest News ===== -->
+  <!-- ===== Latest News (JSONで自動描画) ===== -->
   <section id="news" class="news-strip" aria-labelledby="news-title">
     <div class="container news-head">
       <h2 id="news-title">最新ニュース</h2>
@@ -67,26 +64,7 @@
       </div>
     </div>
     <div class="news-rail" id="newsRail" tabindex="-1">
-      <a class="news-card" href="#">
-        <div class="news-thumb skeleton"><img loading="lazy" src="assets/eyecatch-desktop.png" alt="ニュース1"></div>
-        <div class="news-meta">2025/09/15</div>
-        <h4>サービス開始のお知らせ（サンプル）</h4>
-      </a>
-      <a class="news-card" href="#">
-        <div class="news-thumb skeleton"><img loading="lazy" src="assets/badge-white.png" alt="ニュース2"></div>
-        <div class="news-meta">2025/09/10</div>
-        <h4>ホワイトプラン事例を公開（サンプル）</h4>
-      </a>
-      <a class="news-card" href="#">
-        <div class="news-thumb skeleton"><img loading="lazy" src="assets/badge-silver.png" alt="ニュース3"></div>
-        <div class="news-meta">2025/09/08</div>
-        <h4>シルバープラン強化（サンプル）</h4>
-      </a>
-      <a class="news-card" href="#">
-        <div class="news-thumb skeleton"><img loading="lazy" src="assets/badge-gold.png" alt="ニュース4"></div>
-        <div class="news-meta">2025/09/01</div>
-        <h4>ゴールド限定特典（サンプル）</h4>
-      </a>
+      <!-- JSで data/news.json から生成します -->
     </div>
   </section>
 
@@ -127,7 +105,7 @@
     </div>
   </section>
 
-  <!-- ===== Options（サービス内容の近く） ===== -->
+  <!-- ===== Options ===== -->
   <section id="options" class="section options" aria-labelledby="options-title">
     <div class="container">
       <h2 id="options-title">オプション</h2>
@@ -224,14 +202,13 @@
       <h2 id="contact-title">お問い合わせ</h2>
       <p class="section-lead">まずは空き枠の確認から。仮押さえもOKです。</p>
 
-      <!-- 安定版のフォームレイアウト（2列→1列） -->
       <form class="card glass form" name="contact" netlify>
         <div class="form-row two">
           <label>お名前
-            <input type="text" name="name" placeholder="">
+            <input type="text" name="name" />
           </label>
           <label>メールアドレス
-            <input type="email" name="email" placeholder="">
+            <input type="email" name="email" />
           </label>
         </div>
 
@@ -278,6 +255,7 @@
 
   <button class="to-top" aria-label="ページ上部へ">↑</button>
 
-  <script src="script.js?v=hero14-nav-cta-cyan"></script>
+  <!-- ★ script は最新版に -->
+  <script src="script.js?v=news-json-01"></script>
 </body>
 </html>

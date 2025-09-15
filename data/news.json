@@ -1,0 +1,34 @@
+[
+  {
+    "id": "2025-09-15-announce",
+    "title": "サービス開始のお知らせ（サンプル）",
+    "date": "2025-09-15",
+    "thumb": "assets/eyecatch-desktop.png",
+    "url": "#",
+    "excerpt": "120分でURLを即日お渡しする新サービスを公開しました。"
+  },
+  {
+    "id": "2025-09-10-white-case",
+    "title": "ホワイトプラン事例を公開（サンプル）",
+    "date": "2025-09-10",
+    "thumb": "assets/badge-white.png",
+    "url": "#",
+    "excerpt": "シンプル構成でも即日公開を実現。"
+  },
+  {
+    "id": "2025-09-08-silver-boost",
+    "title": "シルバープラン強化（サンプル）",
+    "date": "2025-09-08",
+    "thumb": "assets/badge-silver.png",
+    "url": "#",
+    "excerpt": "ショート動画×1本とSEO初期設定を同梱。"
+  },
+  {
+    "id": "2025-09-01-gold-benefit",
+    "title": "ゴールド限定特典（サンプル）",
+    "date": "2025-09-01",
+    "thumb": "assets/badge-gold.png",
+    "url": "#",
+    "excerpt": "動画3本＋初月の運用ミニサポート。"
+  }
+]
