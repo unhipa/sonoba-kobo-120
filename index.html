@@ -9,7 +9,8 @@
   <link rel="preload" href="assets/eyecatch-desktop.png" as="image">
   <link rel="preload" href="assets/eyecatch-mobile.png" as="image" media="(max-width: 720px)">
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@700;800&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=hero09-white-options-align">
+  <!-- ★ キャッシュ切替 -->
+  <link rel="stylesheet" href="styles.css?v=hero14-nav-cta-cyan">
 </head>
 <body>
   <!-- ===== Header / Nav ===== -->
@@ -27,7 +28,8 @@
       <nav class="nav" aria-label="グローバルナビ">
         <a href="#service">サービス内容</a>
         <a href="#plans">プラン</a>
-        <a href="#contact" class="btn small">お問い合わせ</a>
+        <!-- ★ ここだけ目立つ色に変更 -->
+        <a href="#contact" class="btn contact-cta" aria-label="お問い合わせへ移動">お問い合わせ</a>
       </nav>
     </div>
     <div class="wood-bar"></div>
@@ -35,11 +37,9 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="ヒーロー">
-    <div class="hero-bg" role="img" aria-label="左にキャラ／右に建物と余白の背景"></div>
+    <div class="hero-bg" role="img"></div>
 
-    <!-- 中央寄せ＋少し上／下の説明＆ボタンだけ右寄せ -->
     <div class="container hero-inner center">
-      <!-- ★ 白文字／枠なしに変更 -->
       <h1 class="hero-title fx-white">120分でURLをその場でお渡し。</h1>
 
       <div class="hero-sub right">
@@ -57,7 +57,7 @@
     <div class="scroll-indicator">▼ Scroll</div>
   </section>
 
-  <!-- ===== Latest News strip ===== -->
+  <!-- ===== Latest News ===== -->
   <section id="news" class="news-strip" aria-labelledby="news-title">
     <div class="container news-head">
       <h2 id="news-title">最新ニュース</h2>
@@ -66,7 +66,6 @@
         <button class="news-next" type="button" aria-label="次へ">›</button>
       </div>
     </div>
-
     <div class="news-rail" id="newsRail" tabindex="-1">
       <a class="news-card" href="#">
         <div class="news-thumb skeleton"><img loading="lazy" src="assets/eyecatch-desktop.png" alt="ニュース1"></div>
@@ -128,7 +127,7 @@
     </div>
   </section>
 
-  <!-- ===== Options（サービス内容の近くへ） ===== -->
+  <!-- ===== Options（サービス内容の近く） ===== -->
   <section id="options" class="section options" aria-labelledby="options-title">
     <div class="container">
       <h2 id="options-title">オプション</h2>
@@ -225,15 +224,17 @@
       <h2 id="contact-title">お問い合わせ</h2>
       <p class="section-lead">まずは空き枠の確認から。仮押さえもOKです。</p>
 
+      <!-- 安定版のフォームレイアウト（2列→1列） -->
       <form class="card glass form" name="contact" netlify>
-        <div class="grid grid-2">
+        <div class="form-row two">
           <label>お名前
-            <input type="text" name="name" required>
+            <input type="text" name="name" placeholder="">
           </label>
           <label>メールアドレス
-            <input type="email" name="email" required>
+            <input type="email" name="email" placeholder="">
           </label>
         </div>
+
         <label>ご希望プラン
           <select name="plan">
             <option>未定（相談したい）</option>
@@ -242,10 +243,15 @@
             <option>ゴールド</option>
           </select>
         </label>
+
         <label>ご相談内容
-          <textarea name="message" rows="5" placeholder="ご要望・日時候補など"></textarea>
+          <textarea name="message" rows="6" placeholder="ご要望・日時候補など"></textarea>
         </label>
-        <button type="submit" class="btn primary">送信する</button>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">送信する</button>
+        </div>
+
         <p class="tiny">※デモのため静的送信（Netlify フォーム対応）。別CMS/DB連携も可。</p>
       </form>
     </div>
@@ -272,6 +278,6 @@
 
   <button class="to-top" aria-label="ページ上部へ">↑</button>
 
-  <script src="script.js?v=hero09-white-options-align"></script>
+  <script src="script.js?v=hero14-nav-cta-cyan"></script>
 </body>
 </html>
