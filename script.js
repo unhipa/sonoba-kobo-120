@@ -31,49 +31,47 @@ document.querySelector('.news-next')?.addEventListener('click', () => {
   rail?.scrollBy({left: 320, behavior: 'smooth'});
 });
 
-// ===== News: JSON から描画 =====
-function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-}
+// ===== News: JSON から描画（キャッシュバスター付き） =====
+function escapeHtml(s){return s.replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 
-async function renderNews() {
+async function renderNews(){
   const railEl = document.getElementById('newsRail');
-  if (!railEl) return;
+  if(!railEl) return;
 
-  // 読み込み中プレースホルダ
+  // ローディング骨組み
   railEl.innerHTML = Array.from({length:4}).map(()=>(
     `<div class="news-card skeleton" aria-hidden="true" style="height:220px;width:260px;border-radius:14px;"></div>`
   )).join('');
 
-  try {
-    const res = await fetch('data/news.json?ts=' + Date.now());
-    if (!res.ok) throw new Error('failed to load news.json');
+  try{
+    // ★ キャッシュ回避用に現在時刻を付与
+    const res = await fetch('data/news.json?ts=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('failed to load news.json');
     const items = await res.json();
 
-    // 降順ソート
+    // 日付降順
     items.sort((a,b)=> new Date(b.date) - new Date(a.date));
 
-    // マークアップ生成
-    const html = items.map(item => {
+    // 必要なら最大件数を制限 → const list = items.slice(0, 12);
+    const list = items;
+
+    // 描画
+    railEl.innerHTML = list.map(item=>{
       const href = item.url ? ` href="${escapeHtml(item.url)}"` : '';
-      const target = item.url && /^https?:\/\//.test(item.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+      const ext = item.url && /^https?:\/\//.test(item.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+      const thumb = item.thumb ? escapeHtml(item.thumb) : 'assets/eyecatch-desktop.png';
       return `
-        <a class="news-card" ${href}${target} aria-label="${escapeHtml(item.title)}">
-          <div class="news-thumb">
-            <img loading="lazy" src="${escapeHtml(item.thumb)}" alt="">
-          </div>
+        <a class="news-card"${href}${ext} aria-label="${escapeHtml(item.title)}">
+          <div class="news-thumb"><img loading="lazy" src="${thumb}" alt=""></div>
           <div class="news-meta">${escapeHtml(item.date)}</div>
           <h4>${escapeHtml(item.title)}</h4>
         </a>
       `;
     }).join('');
 
-    railEl.innerHTML = html;
-
-  } catch (err) {
+  }catch(err){
     console.error(err);
-    railEl.innerHTML = `<div style="opacity:.8">ニュースを読み込めませんでした。時間をおいて再度お試しください。</div>`;
+    railEl.innerHTML = `<div style="opacity:.8">ニュースを読み込めませんでした。JSONの形式やパスを確認してください。</div>`;
   }
 }
-
 document.addEventListener('DOMContentLoaded', renderNews);

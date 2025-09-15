@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>その場工房120｜2時間で“始められる”をカタチに</title>
   <meta name="description" content="120分でHP/簡易アプリを即納。その場でURL発行＋名刺デザイン決定。印刷会社が提供する超短納期スタートアップサービス。">
+
   <link rel="icon" href="assets/logo-header.png">
   <link rel="preload" href="assets/eyecatch-desktop.png" as="image">
   <link rel="preload" href="assets/eyecatch-mobile.png" as="image" media="(max-width: 720px)">
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@700;800&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
-  <!-- ★ 最新版に更新 -->
-  <link rel="stylesheet" href="styles.css?v=news-json-01">
+  <!-- ★ キャッシュ切替（数字を変えると確実に反映） -->
+  <link rel="stylesheet" href="styles.css?v=news-json-02">
 </head>
 <body>
   <!-- ===== Header / Nav ===== -->
@@ -28,7 +30,7 @@
       <nav class="nav" aria-label="グローバルナビ">
         <a href="#service">サービス内容</a>
         <a href="#plans">プラン</a>
-        <!-- ヘッダーのお問い合わせはシアン→ブルーのCTA（前回のまま） -->
+        <!-- ★ 料金ボタンと被らない“シアン→ブルー”のCTA -->
         <a href="#contact" class="btn contact-cta" aria-label="お問い合わせへ移動">お問い合わせ</a>
       </nav>
     </div>
@@ -37,9 +39,13 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="ヒーロー">
-    <div class="hero-bg" role="img"></div>
+    <div class="hero-bg" role="img" aria-label="ヒーロー背景"></div>
+
     <div class="container hero-inner center">
+      <!-- 見出しは白文字（フチなし） -->
       <h1 class="hero-title fx-white">120分でURLをその場でお渡し。</h1>
+
+      <!-- PCでは右寄せ、SPでは中央寄せ -->
       <div class="hero-sub right">
         <p class="lead">
           打合せ→要件定義→生成→公開までをワンストップ。<br>
@@ -51,10 +57,11 @@
         </div>
       </div>
     </div>
+
     <div class="scroll-indicator">▼ Scroll</div>
   </section>
 
-  <!-- ===== Latest News (JSONで自動描画) ===== -->
+  <!-- ===== Latest News（JSONから自動描画） ===== -->
   <section id="news" class="news-strip" aria-labelledby="news-title">
     <div class="container news-head">
       <h2 id="news-title">最新ニュース</h2>
@@ -63,8 +70,9 @@
         <button class="news-next" type="button" aria-label="次へ">›</button>
       </div>
     </div>
+
     <div class="news-rail" id="newsRail" tabindex="-1">
-      <!-- JSで data/news.json から生成します -->
+      <!-- JS が data/news.json から生成します -->
     </div>
   </section>
 
@@ -105,7 +113,7 @@
     </div>
   </section>
 
-  <!-- ===== Options ===== -->
+  <!-- ===== Options（サービス内容の直下） ===== -->
   <section id="options" class="section options" aria-labelledby="options-title">
     <div class="container">
       <h2 id="options-title">オプション</h2>
@@ -255,7 +263,7 @@
 
   <button class="to-top" aria-label="ページ上部へ">↑</button>
 
-  <!-- ★ script は最新版に -->
-  <script src="script.js?v=news-json-01"></script>
+  <!-- ★ キャッシュ切替（数字を変える） -->
+  <script src="script.js?v=news-json-02"></script>
 </body>
 </html>
